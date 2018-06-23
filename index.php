@@ -10,15 +10,40 @@
     <section id="dump">
         <div id='wrapper'>
         <?php
-//            $a = 0;
+            $PLACEHOLDERS = array(
+                "What have you accomplished?",
+                "Did you do something today?",
+                "What was the last amazing thing you id?",
+            );
+            
+            $person = array(
+                "key" => "value",
+                "name" => "Blaise",
+                "age" => 19,
+            );
+            
+            $_FAKEPOST = array(
+                "log" => "slfjsljfks",
+                "time" => "12:45am",
+            );
+            
+            $person["name"]  // "Blaise"
+            $person["age"]  // 19
+            $person["age"] = $person["age"] + 1  // Adds 1 to age
+            $person["age"]  // 20
             date_default_timezone_set('Asia/Manila');
-            echo "<h1 id = 'time'>The time is .date('h:ia')</h1>".date("h:ia");
-            echo "<form action = 'index.php'>";
-            echo "<input type = 'text' id = 'log' name = 'log' placeholder = 'What have you accomplished?'/>";
-//            echo "<input type = 'text' id = 'log' name = 'log2' placeholder = 'What have you accomplished2?'/>";
-            echo "<input type = 'submit'/>";
-            echo "</form>";
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                var_dump($_POST);  // hashmap, dictionary, hash, asociative_array
+                // firebase.save_to_database({
+                //         'log' => $_POST["log"];
+                //         'message' => $_POST["time"];
+                // });
+            }
+            
             if(isset($_GET['log'])) {
+                echo date('h:ia');
+                echo "<br/>";
                 echo $_GET['log'];
             }
 //            for($a = 0; $a < 5; $a++) {
@@ -30,7 +55,14 @@
 //            }
             
         ?>
+        <h1 id="time"><?php echo date("h:ia"); ?></h1
+        <form action="index.php" method="POST">
+            <input type="text" id="log" name="log" placeholder="<?php echo $PLACEHOLDERS[array_rand($PLACEHOLDERS)]; ?>" />
+            <input type="hidden" name="time" value="<?php echo date("h:ia"); ?>" />
+            <input type="submit" />
+        </form>
         </div>
+        
     </section>
 </body>
 </html>
