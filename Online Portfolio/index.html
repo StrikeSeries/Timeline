@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Online Portfolio</title>
+        <link rel = "stylesheet" type = "text/css" href = "css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src = "js/jquery.easypiechart.js"></script>
+        <script>
+            $(function() {
+                $('.chart').easyPieChart ({
+                    barColor: '#ff6700',
+                    lineWidth: '5',
+                    trackColor: '#333',
+                    animate: 2000,
+                    scaleColor: false,
+                });
+            });
+        </script>
+        <script type = "text/javascript">
+            $(document).ready(function() {
+                $('.icon').click(function() {
+                    $('.overlay').fadeToggle(200);
+                    $('.icon').toggleClass('active');
+                });
+            });
+            $('.overlay').on('click', function() {
+                $('.overlay').fadeToggle(200);
+                $('.icon').toggleClass('active');
+                open = false;
+            });
+        </script>
+    </head>
+    <body>
+        <a href = "index.html" class = "home">BlaiseFlorendo</a>
+        <div class = "icon">
+            <div class = "menu"></div>
+        </div>
+        <div class = "overlay">
+            <div class = "wrap">
+                <ul class = "wrap-nav">
+                    <li><a href = "#">About Me</a></li>
+                    <li><a href = "#">Portfolio</a></li>
+                    <li><a href = "#">Contact Me</a></li>
+                </ul>
+                <div class = "social">
+                    <a href = "https://www.facebook.com/blaiseflorendo/">
+                        <div class = "social-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </div>
+                    </a>
+                    <a href = "https://www.linkedin.com/in/blaiseflorendo/">
+                        <div class = "social-icon">
+                            <i class = "fa fa-linkedin-square"></i>
+                        </div>
+                    </a>
+                    <a href = "https://plus.google.com/u/0/114750031307539852049">
+                        <div class = "social-icon">
+                            <i class="fa fa-google-plus-square"></i>
+                        </div>
+                    </a>
+                    <a href = "https://twitter.com/blaiseflorendo">
+                        <div class = "social-icon">
+                            <i class = "fa fa-twitter-square"></i>
+                        </div>
+                    </a>
+                    <p>Made by: Blaise A. Florendo</p>
+                </div>
+            </div>
+        </div>
+        <div class="parallax">
+            <p class = "name">Blaise Florendo</p>
+            <p class = "title">Junior Game Developer</p>
+            <div class = "btn">
+                <button type = "button">Find More</button>
+            </div>
+        </div>
+        <div class = "container">    
+            <div class = "introduction">
+                <p class = "skills-title">Skills</p>
+                <div class = "box">
+                    <div class = "chart" data-percent = "81">81%</div>
+                        <h3>Game Development</h3>
+                </div>
+                <div class = "box">
+                    <div class = "chart" data-percent = "59">59%</div>
+                    <h3>Graphic Artist</h3>
+                </div>
+                <div class = "box">
+                    <div class = "chart" data-percent = "64">64%</div>
+                        <h3>3D Modeler</h3>
+                </div>
+                <div class = "box">
+                    <div class = "chart" data-percent = "80">80%</div>
+                        <h3>Arduino Programming</h3>
+                </div>
+                <div class = "box">
+                    <div class = "chart" data-percent = "76">76%</div>
+                        <h3>Raspberry Pi Programming</h3>
+                </div>
+                <div class = "box">
+                    <div class = "chart" data-percent = "83">83%</div>
+                        <h3>PC Maintenance</h3>
+                </div>
+                <div class = "box">
+                    <div class = "chart" data-percent = "69">69%</div>
+                        <h3>Web Design</h3>
+                </div>
+                <div class = "box">
+                    <div class = "chart" data-percent = "54">54%</div>
+                        <h3>UI/UX Design</h3>
+                </div>
+            </div>
+        </div>
+        <div class = "proficient">
+            <h1 class = "skill">I am highly skilled in..</h1>
+            <div class = "pictures"></div>
+        </div>
+        <div class = "contact">
+            <p class = "contact-title">Feel free to get in touch</p>
+            <form class = "contact-form" action = "contactform.php" method = "post">
+                <input type = "text" name = "name" placeholder = "Full name">
+                <input type = "text" name = "mail" placeholder = "Your e-mail">
+                <input type = "text" name = "subject" placeholder = "Subject">
+                <textarea name = "message" placeholder = "Message"></textarea>
+                <input type = "submit" name = "submit" value = "Submit" id = "input-submit">
+            </form>
+        </div>
+    </body>
+</html>
