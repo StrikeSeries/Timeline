@@ -15,12 +15,11 @@
             echo "<h1 id = 'time'>The time is .date('h:ia')</h1>".date("h:ia");
             echo "<form action = 'index.php'>";
             echo "<input type = 'text' id = 'log' name = 'log' placeholder = 'What have you accomplished?'/>";
-            echo "<input type = 'text' id = 'log' name = 'log2' placeholder = 'What have you accomplished2?'/>";
+//            echo "<input type = 'text' id = 'log' name = 'log2' placeholder = 'What have you accomplished2?'/>";
             echo "<input type = 'submit'/>";
             echo "</form>";
-            if(isset($_GET['log']) && ($_GET'log2')) {
+            if(isset($_GET['log'])) {
                 echo $_GET['log'];
-                echo $_GET['log2']; 
             }
 //            for($a = 0; $a < 5; $a++) {
 //                if(isset($_GET['log'.$a])) {
