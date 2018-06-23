@@ -10,18 +10,28 @@
     <section id="dump">
         <div id='wrapper'>
         <?php
-        date_default_timezone_set('Asia/Manila');
+//            $a = 0;
+            date_default_timezone_set('Asia/Manila');
+            echo "<h1 id = 'time'>The time is .date('h:ia')</h1>".date("h:ia");
+            echo "<form action = 'index.php'>";
+            echo "<input type = 'text' id = 'log' name = 'log' placeholder = 'What have you accomplished?'/>";
+            echo "<input type = 'text' id = 'log' name = 'log2' placeholder = 'What have you accomplished2?'/>";
+            echo "<input type = 'submit'/>";
+            echo "</form>";
+            if(isset($_GET['log']) && ($_GET'log2')) {
+                echo $_GET['log'];
+                echo $_GET['log2']; 
+            }
+//            for($a = 0; $a < 5; $a++) {
+//                if(isset($_GET['log'.$a])) {
+//                    echo $_GET['log'.$a];
+//                    echo $a;
+//                }
+//                $a++;
+//            }
             
-        echo "It's ".date("h:ia");
         ?>
-      <form>
-        <input id="log" type="text" name="log" placeholder="What have you accomplished?">
-      </form>
-    </div>
-  </section>
-</form>
-<script type = "text/javascript">
-
-</script>
+        </div>
+    </section>
 </body>
 </html>
