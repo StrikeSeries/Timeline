@@ -13,24 +13,8 @@
             $PLACEHOLDERS = array(
                 "What have you accomplished?",
                 "Did you do something today?",
-                "What was the last amazing thing you id?",
+                "What was the last amazing thing you did?",
             );
-            
-            $person = array(
-                "key" => "value",
-                "name" => "Blaise",
-                "age" => 19,
-            );
-            
-            $_FAKEPOST = array(
-                "log" => "slfjsljfks",
-                "time" => "12:45am",
-            );
-            
-            $person["name"]  // "Blaise"
-            $person["age"]  // 19
-            $person["age"] = $person["age"] + 1  // Adds 1 to age
-            $person["age"]  // 20
             date_default_timezone_set('Asia/Manila');
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -41,28 +25,55 @@
                 // });
             }
             
-            if(isset($_GET['log'])) {
-                echo date('h:ia');
-                echo "<br/>";
-                echo $_GET['log'];
-            }
-//            for($a = 0; $a < 5; $a++) {
-//                if(isset($_GET['log'.$a])) {
-//                    echo $_GET['log'.$a];
-//                    echo $a;
-//                }
-//                $a++;
-//            }
-            
         ?>
         <h1 id="time"><?php echo date("h:ia"); ?></h1
         <form action="index.php" method="POST">
-            <input type="text" id="log" name="log" placeholder="<?php echo $PLACEHOLDERS[array_rand($PLACEHOLDERS)]; ?>" />
-            <input type="hidden" name="time" value="<?php echo date("h:ia"); ?>" />
-            <input type="submit" />
+            <input type="text" id="log" name="log" placeholder="<?php echo $PLACEHOLDERS[array_rand($PLACEHOLDERS)]; ?>"/>
+            <input type="hidden" id = "date" name="time" value="<?php echo date("h:ia"); ?>" />
+            <input type="submit" id = "submitBtn" onclick = "submitClick()"/>
         </form>
+            <p id = "date2"></p>
+            <ul id = "list"></ul>
         </div>
-        
     </section>
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyDy_T-IkhbUUuJ7sy5WhjenLSd_XhASzz0",
+            authDomain: "timeline-49852.firebaseapp.com",
+            databaseURL: "https://timeline-49852.firebaseio.com",
+            projectId: "timeline-49852",
+            storageBucket: "timeline-49852.appspot.com",
+            messagingSenderId: "524117651179"
+        };
+        firebase.initializeApp(config);
+        
+        var log = document.getElementById("log");
+        var date = document.getElementById("date");
+        var submitBtn = document.getElementById("submitBtn");
+        var firebaseOutputRef = firebase.database().ref().child("list").child("input");
+        firebaseOutputRef.on('value', function(datasnapshot) {
+            list.innerText = datasnapshot.val();
+        });
+
+        function addZero(i) {
+            if(i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        
+        function submitClick() {
+            var firebaseRef = firebase.database().ref();
+            var messageText = log.value;
+            firebaseRef.child("list").child("input").set(messageText);
+            var d = new Date();
+            var x = document.getElementById("date2");
+            var h = addZero(d.getHours());
+            var m = addZero(d.getMinutes());
+            x.innerHTML = h + ":" + m;
+        }
+        
+    </script>
 </body>
 </html>
