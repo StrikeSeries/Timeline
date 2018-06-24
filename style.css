@@ -12,37 +12,53 @@ body {
 
 }	
 
+
 /* Type */
-h1 {
+h1, li{
 	font-family: 'Roboto', sans-serif;
-	font-size: 20px;
-	color: #FEFEDF;
 }
 
-.input {
-	font-size: 20px;
+#time {
+	font-size: 150px;
+	font-weight: bold;
 }
 
-/* Color */
+#log {
+	font-size: 24px;
+	font-weight: normal;
+}
+
+ul {
+	font-size: 18px;
+	font-weight: normal;
+}
+
+
+ /* Color  */
 body {
-	background-color: green;/*#845EC2;*/
+	background-color: #F2F9FE; /* Google White*/
 }
 
-#dump {
-	background-color: red;
+#wrapper /* or dump */ {
+	background-color: #2196F3; /* Google Blue */
 }
 
-#wrapper {
-	background-color: #00C9A7; /* cyan */
+#log {
+	background-color: #F2F9FE; /* Google White */
 }
 
-.input {
-	background-color: #FEFEDF;
+#aggregate-list {
+	background-color: #2196F3; /* Google Blue */
 }
 
-#aggregate {
-	background-color: blue;
+#time {
+	color: #F2F9FE; /* Google White */
 }
+
+ul {
+	color: #F2F9FE; /* Google Black */
+}
+
 
 /* Layout */
 /* Main Dump */
@@ -54,14 +70,16 @@ body {
 }
 
 #wrapper {
-	padding: 20px;
+/*	padding: 5px;*/
 	width: 100vh;
-
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
 	align-items: center;
+}
 
+#time {
+	margin: 0px;
 }
 
 #log {
@@ -78,7 +96,6 @@ body {
 	right: 0px;
 	width: 250px;
 	height: 100vh;
-	/*background-color: red;*/
 }
 
 #aggregate-list {
@@ -86,45 +103,21 @@ body {
 	top: 0px;
 	right: 0px;
 	overflow: scroll;
-	width: 20px;
-	height: 20px;
+	width: 250px;
+	height: 100vh;
 	text-align: left;
 	list-style: none;
 	opacity: 1;
-	/*background-color: blue;*/
 }
 
-
-/* Aggregate Icon */
 #aggregate-icon {
 	z-index: 9999;
 	position: absolute;
-	top: 0px;
-	right: 0px;
+	top: 20px;
+	right: 40px;
 	cursor: pointer;
 }	
 
-#aggregate-container:active #aggregate-list {
-	opacity: 1;
-	height: 100vh;
-	width: 250px;
+ul {
+  list-style-type: none;
 }
-
-
-/*div {
-  background: #fff;
-  margin: 0 auto;
-  padding: 100px;
-  text-align: center;
-   border-radius 
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-   box-shadow 
-  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
-  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
-  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
-  min-width:550px;
-}*/
-
-
